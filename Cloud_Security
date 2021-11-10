@@ -1,0 +1,247 @@
+Training and Awarness for Application Security
+
+	Applications are built for function
+	Security can impact performance
+		-- checking
+		-- encryption
+		-- were supposed to run in milliseconds
+
+	Challanges with Applications Security
+		- Application are built from many pieces
+		- Developers often have inadequate security training
+		- Rush to production can impact quality
+
+	Cloud Application Security
+		- We have to rely on other to secure the environmet
+		- Integrate with legacy systems - think about old bank applications written in cobol -> now we are just adding other interfaces around the that cobol implementatin
+
+		- Multiple types of end-point devices - working from home
+
+	Key training requirements
+		- Security is as essential as functionality of the app, they are complementary
+		- Version control is required - separate dev env from prod env
+		- Documentation is not an option
+		- All options must be tested
+
+	Common Cloud vulnerabilities
+		- Multi-tenancy - leak information and sharing of data between clients by mistake 
+		- Lack od documentation 
+		- Insecure API - 
+		- Network based attack - opoen on the internet lead to less security than when we have pur own data centers
+
+	Support for Application Security
+		- Follow the standards:
+			- PA-DSS - handle payment cards
+			- OWASP -> top 10 vulnerabilities
+			- CSA Treacherous Twelve - things to watch for
+			- Coding Standards
+
+	Application development
+		- Applications - single channel
+		- Microservices - multiple independent applications -> 
+
+	Foundations of Microservices
+		- Cohesive applications
+		- Loosely coupled applications - may cause risks of dependencies
+			- security mut be applied within each microservice
+	API charecteristics
+		- API's might be untrusted or insecures, then they must be testesd in the point of view of security
+
+	Life Cycle Stage
+		- Concept 
+			- Problem space, non-technical
+			- Define security requirements based on data processing by the application - Intelectual property, PII, finantial, investigative
+			- Requirement for protection needs
+		- Development, 
+		- Production, 
+		- Utilization, 
+		- Support, 
+		- Retirement
+
+	Thread Modeling - STRIDE
+		- Spoofing - maskerating, someone appears to be otherwise
+		- Tampering - change our data, or process flow - transfer going to other person for example
+		- Repudiation - Do I have a log of everything that happened
+		- Information disclosure - subject to denial of service
+		- Escalation of previlege - from the trusted relationship, our system be able to attack oither systems, or the opposite
+
+	Threads in the Cloud 
+		- Hardware - isolation 
+		- Virtualization - misconfigured -> at the process level - have thos virtual machine to be poperly isolated, so one person in a process cannot access to other processes
+		- Cloud environments - fewer network controls -> we can do network segmentation
+		- Service - application layer
+		- Orchestration layer  - scheduling
+
+	Development phase 
+		- Development can be done by people all over the world  - information can be shared in a unsecured way - internal or exteran developers
+		- Coding documentation standards
+		- Project Management - choordinate things happening a t the same time
+		- Build - ability to test and audit
+		- May be a very dynamic process 
+			- devops or devsecops
+			- agile - more permissive
+
+	Quality asurance pipeline
+		- ensure integrity of the systems
+		- test all changes
+
+	Production
+		- Patching
+		- Versiom Control
+		- Review Logs
+		- Addressing issues - feedback loop (support)
+
+
+Cloud Software Testing an Assurance
+	Purpose
+		- Discover flaws or bugs in the Software
+	Verification
+		- Ensure the software works
+	Validation
+		- Right application for the right business case
+
+	Testing methodologies
+		- Unit tests - White box -> SAST
+		- Integrated tests - connect them together - Black box -> DAST
+		- IAST - Passive -> able to test using things like scanners; agent withing the application, testing and looking for incorrect behaviors
+			- Active - generate test data and verify app behaviors
+		- Regression tests 
+		- SOciability testing - how my program work in the rall operational world
+
+	ISO 15408 - Common Criteria - test the app once -> result will be accepted by other nations
+
+	Type of tests
+		- vulnerabilities Assessments
+		- Penetration tests
+			. PA-DSS
+			. CSA Treacherous Twelve
+			. NIST SP 800-115
+
+	Cloud Development and Testing Risks
+		- Disclosure os sensitive data - make sure you are not breaking any laws between countries (world wide development teams)
+		- Ownership od code - verify who owns the code, the development entity or myself - escrow (maintan a copy with a trusty thirdparty)
+		- Contractual disputes - specify jusristition, make sure the contract is clear
+		- Change management - prevent regression, accidently overriding changes
+
+
+	Open Source Software
+		- Only use it if got from a trusted source and we can test it our self
+		- Thoroughtly tested
+		- API's 
+			- Library of trusted (tested) APIs
+			- Prohibit use of untested APIs
+
+	Proprietary Software
+		- Difficult to do in-depth testing
+		- Signed software and patches
+		- Proper configuration
+		- Escrow
+
+
+Cloud Application Architecture and componenets
+	Secure Application standards
+		- ISO/IEC 27034 - built it to be secure
+			- Standards for Application Security
+	Network Security
+		- Network firewall (protect one network from another)  -  managed by CSP
+		- Web application Firewall (WAF) - in depth examination of traffic to web applications
+		- Defensive in path - 
+
+	Network and host-based -> IDS/IPS
+		- Monitor and log network traffic 
+		- Detect changes or request changes on a host
+		- Alert to suspecious traffic or changes
+			- Block suspectious activities
+
+	APIs Gateways
+		- Ensurte that traffic is being monitored and logged and managed
+			- Logging
+			- Proxy levels
+			- Limiting bandwidth utilization
+			- Manages API level access control
+
+	Database Activity Monitoring (DAM)
+		- Monitor and manage traffic to the datababse
+			. Excessive requests or volumes of traffic
+
+	Load Balancing
+		- Assist with availability
+
+	Hardware 
+		- Isolation 
+			. Multi-tenancy
+		- Supply Chain
+			. Security
+			. Reliability
+		- Disposal - no possible bridge when a container are destroyed?
+
+	Sandboxing
+		- Isolation
+			. VM
+			. Containers
+		- Secure configuration - configured in a secured way
+
+	Cryptography
+		- Selection of algorithms
+			. Built into applications
+			. Built into Databases
+		- Key Management
+			. HSM - Hardware security module 
+			. Who has the key?
+			. CSP using the same keys for stored data of multiple consumers
+
+
+Identity and Access Management
+	Identity Basics
+		- Identity - Unique ->secure registration processes (Not shared)
+	Authentication
+		- Verification of the right to use the stated identity
+		- Multifactor Authentication (MFA) 
+			- using a combination of two or more authentication factors to increase reliability of the authentication process
+			- known as strong authentication
+		- Good access control
+			- Least previlege
+			- Need to Know - mascara info when not needed
+			- Separation of dities - to prevents frauds
+				- dual control
+				- mutual exclusivity
+
+	Authorization - right a person has after authentication
+		- Rule-based access control - ACL rules
+		- Role Based Access Control (RBAC)
+		- Attribute based access control (ABAC)
+			- temporal
+			- location
+
+		Implementations:
+			- LDAP
+			- Microsoft Active Directory
+				. Schema
+				. Replication
+			- Direcrtory Server -> X500
+
+	Identity Management - track and record what someone does in the system (responsibility of cloud consumers)
+		- Accounting / Auditing
+			. Record and log all activities
+			. Ability to associate actions with a known Identity
+			. Log retention, management, analisys
+				. Compliance
+				. Investigations
+
+	Single sign-on
+		- single access control point 
+			. Single user ID
+			. Single point of compromise or failure
+
+	Federated Identity Management
+		- Single sign on for the internet
+			. Different companies use the common identity manament system
+			. Third party to managed access
+		- Standards
+			. SAML
+			. OpenID
+			. OAuth
+
+
+
+
